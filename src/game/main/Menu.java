@@ -37,7 +37,7 @@ public class Menu extends Scene {
 
         int w = Display.getWidth(), h = Display.getHeight();
 
-        buttons.add(new Button(w/2-50, h/2+100, 200, "Exit", Color.red) {
+        buttons.add(new Button(-50, h/2+100, 200, "Exit", Color.red) {
             @Override
             public void click() {
                 Game.exit();
@@ -46,17 +46,17 @@ public class Menu extends Scene {
 
         
         
-        buttons.add(new Button(w/2-50, h/2-25, 200, "Play", Color.green) {
+        buttons.add(new Button(-50, h/2-25, 200, "Play", Color.green) {
             @Override
             public void click() {
                 Game.dungeon.player = player;
-                Game.dungeon.init();
-                Game.currScene = Game.dungeon;
+                if(Game.dungeon.inited)Game.dungeon.init();
+                Game.currScene = new Dungeon();
 
             }
         });
 
-        buttons.add(new Button(w/2-50, h/2 + 38, 200, "Settings", Color.green) {
+        buttons.add(new Button(-50, h/2 + 38, 200, "Settings", Color.green) {
             @Override
             public void click() {
 

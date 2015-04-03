@@ -22,6 +22,7 @@ public class Dungeon extends Scene {
 
     Random r = new Random();
     int lvl;
+    public boolean inited;
 
     public Creature[] getArrEnts() {
         Creature[] u = new Creature[creatures.size()];
@@ -36,6 +37,7 @@ public class Dungeon extends Scene {
 
     @Override
     public void init(Object... args) {
+        inited = true;
         buttons.add(new Button(60, Display.getHeight() - 50, 70, "Menu", Color.green) {
             @Override
             public void click() {
