@@ -15,7 +15,6 @@ import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.PixelFormat;
 import org.newdawn.slick.Graphics;
