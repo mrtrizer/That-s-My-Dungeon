@@ -33,7 +33,7 @@ public abstract class Button {
     }
 
     public void render(Graphics g) {
-        int x = this.x;
+        int x = this.x+Display.getWidth()/2;
         int y = this.y;
         int w = this.w + wp;
         fontRender.drawString(text, x - fontRender.getWidth(text) / 2, y + 3, Color.black);
@@ -50,7 +50,7 @@ public abstract class Button {
         g.drawRect(x-w/2,y, w, 50);
         fontRender.drawString(text, x - fontRender.getWidth(text) / 2, y + 3, Color.white);
 
-        if (Math.abs(mx - x) < (w + wp) / 2 && Math.abs((y + 25) - my) < 25) {
+        if (Math.abs(mx - x) < (w + wp) / 2 && Math.abs(y+25 - my) < 25) {
             if (wp < 16) {
                 wp *= 2;
             }
