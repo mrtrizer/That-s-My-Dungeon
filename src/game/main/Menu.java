@@ -49,10 +49,9 @@ public class Menu extends Scene {
         buttons.add(new Button(-50, h/2-25, 200, "Play", Color.green) {
             @Override
             public void click() {
+                Game.currScene = Game.dungeon;
                 Game.dungeon.player = player;
                 if(Game.dungeon.inited)Game.dungeon.init();
-                Game.currScene = new Dungeon();
-
             }
         });
 
