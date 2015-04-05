@@ -68,7 +68,6 @@ public class Game {
 
     public static void init() throws SlickException {
         currScene.init();
-
         sceneTimer();
         fontRender = FontRender.getTextRender("Sans", 0, 16);
     }

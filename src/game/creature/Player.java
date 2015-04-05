@@ -4,6 +4,7 @@
  */
 package game.creature;
 
+import game.main.Dungeon;
 import static game.main.Game.fontRender;
 import java.util.Random;
 import org.lwjgl.opengl.Display;
@@ -18,7 +19,6 @@ public class Player extends Creature {
 
     boolean hold;
     Random r = new Random();
-    
 
     @Override
     public void init(Object... args) {
@@ -35,6 +35,15 @@ public class Player extends Creature {
         baseTick();
         //statictick();
         move(ex, ey);
+        if(ex==x && ey==y){
+            reset();
+        }
+    }
+
+    public void reset() {
+        dung.flag = null;
+        ex = 0;
+        ey = 0;
     }
 
     public void statictick() {
@@ -55,14 +64,14 @@ public class Player extends Creature {
     @Override
     public void render(Graphics g) {
         g.setColor(Color.white);
-        g.fillRect((int) (x), (int) (y), 20, 20); 
+        g.fillRect((int) (x), (int) (y), 20, 20);
     }
 
     public void gameRender(Graphics g) {
         g.setColor(Color.white);
-        g.fillRect((int) (Display.getWidth()/2), (int) (Display.getHeight()/2), 20, 20);
+        g.fillRect((int) (Display.getWidth() / 2), (int) (Display.getHeight() / 2), 20, 20);
     }
-    
+
     @Override
     public void text() {
         fontRender.drawString(x + "   " + y, 20, 20, Color.white);

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
@@ -26,7 +27,7 @@ public class Dungeon extends Scene {
 
     public ArrayList<Raider> creatures = new ArrayList<>();
 
-    Flag flag;
+    public Flag flag;
     Random r = new Random();
     Floor floor = new Floor();
     int lvl;
@@ -87,6 +88,30 @@ public class Dungeon extends Scene {
         }
         player.tick();
         mouseNavigation();
+        buttons();
+    }
+
+    public void buttons() {
+        if (Keyboard.isKeyDown(Keyboard.KEY_W) || Keyboard.isKeyDown(Keyboard.KEY_UP)) {
+            player.vy = -3;
+            player.reset();
+        } else if (Keyboard.isKeyDown(Keyboard.KEY_S) || Keyboard.isKeyDown(Keyboard.KEY_DOWN)) {
+            player.vy = 3;
+            player.reset();
+        } else if (flag == null) {
+            player.vy = 0;
+
+        }
+        if (Keyboard.isKeyDown(Keyboard.KEY_A) || Keyboard.isKeyDown(Keyboard.KEY_LEFT)) {
+            player.vx = -3;
+            player.reset();
+        } else if (Keyboard.isKeyDown(Keyboard.KEY_D) || Keyboard.isKeyDown(Keyboard.KEY_RIGHT)) {
+            player.vx = 3;
+            player.reset();
+        } else if (flag == null) {
+            player.vx = 0;
+        }
+        
     }
 
     public void mouseNavigation() {
@@ -119,7 +144,7 @@ public class Dungeon extends Scene {
         if (flag != null) {
             flag.render(g);
         }
-       
+
         GL11.glTranslated(player.x - Display.getWidth() / 2, player.y - Display.getHeight() / 2, 0);
         player.gameRender(g);
         GL11.glTranslated(-plcamx / 2, -plcamy / 2, 0);

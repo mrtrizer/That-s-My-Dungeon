@@ -34,6 +34,7 @@ public class Menu extends Scene {
 
         player = new Player();
         player.init(120.0, 120.0, 800, 10);
+        player.dung = Game.dungeon;
 
         int w = Display.getWidth(), h = Display.getHeight();
 
