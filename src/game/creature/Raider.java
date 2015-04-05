@@ -4,8 +4,6 @@
  */
 package game.creature;
 
-import static game.main.Dungeon.plcamx;
-import static game.main.Dungeon.plcamy;
 import static game.main.Game.fontRender;
 import java.util.Random;
 import org.lwjgl.opengl.Display;
@@ -57,15 +55,13 @@ public class Raider extends Creature {
     @Override
     public void render(Graphics g) {
         g.setColor(Color.red);
-        g.fillRect((int)x, (int) y, 20, 20);
-        if (focused) {
-            fontRender.drawString("focus", (int) (x - 16), (int) (y - 16), Color.white);
-        }
-
+        g.fillRect((int) (x), (int) (y), 20, 20);
+        if(focused)fontRender.drawString("focus", (int)(x-16), (int)(y-16), Color.white);
+        
     }
-
+    
     @Override
-    public void text() {
+    public void text(){
         fontRender.drawString(x + "   " + y, 130, 20, Color.red);
         fontRender.drawString(hp + "   " + dmg, 130, 5, Color.red);
     }

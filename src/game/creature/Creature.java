@@ -18,8 +18,8 @@ public class Creature {
 
     public Dungeon dung;
     public Creature focus;
-    public double x, y, vx, vy;
-    public int hp, maxhp, dmg, gold, ex, ey;
+    public double x, y, vx, vy, ex, ey;
+    public int hp, maxhp, dmg, gold;
     ArrayList<Timer> timers = new ArrayList<>();
     ArrayList<String> timnames = new ArrayList<>();
     public boolean focused;
@@ -59,7 +59,7 @@ public class Creature {
 
     }
 
-    public void move(int ex, int ey) {
+    public void move(double ex, double ey) {
         if (ex != 0 && ey != 0) {
             if (Math.abs(ex - x) > 4) {
                 vx = (ex - x) / Math.abs(ex - x) * 2;

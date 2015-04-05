@@ -4,8 +4,6 @@
  */
 package game.creature;
 
-import static game.main.Dungeon.plcamx;
-import static game.main.Dungeon.plcamy;
 import static game.main.Game.fontRender;
 import java.util.Random;
 import org.lwjgl.opengl.Display;

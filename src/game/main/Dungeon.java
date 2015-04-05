@@ -5,13 +5,18 @@
 package game.main;
 
 import game.creature.*;
+import game.world.Block;
+import game.world.Floor;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
 
 /**
  *
@@ -23,6 +28,7 @@ public class Dungeon extends Scene {
 
     Flag flag;
     Random r = new Random();
+    Floor floor = new Floor();
     int lvl;
     public static double plcamx, plcamy;
     public boolean inited;
@@ -43,6 +49,11 @@ public class Dungeon extends Scene {
         inited = true;
         spawnCr();
         initButtons();
+        try {
+            floor.init();
+        } catch (SlickException ex) {
+            Logger.getLogger(Dungeon.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void spawnCr() {
@@ -86,8 +97,8 @@ public class Dungeon extends Scene {
         plcamy = h / 2 - my;
 
         if (Mouse.isButtonDown(1)) {
-            player.ex = (int) (mx - w / 2 + player.x);
-            player.ey = (int) (my - h / 2 + player.y);
+            player.ex = (player.x - plcamx);
+            player.ey = (player.y - plcamy);
             flag = new Flag(player.ex, player.ey);
         }
         if (Mouse.isButtonDown(0)) {
@@ -98,20 +109,20 @@ public class Dungeon extends Scene {
     @Override
     public void render(Graphics g) {
 
-        GL11.glTranslated(plcamx/2, plcamy/2, 0);
-
-        player.gameRender(g);
+        GL11.glTranslated(plcamx / 2, plcamy / 2, 0);
 
         GL11.glTranslated(-player.x + Display.getWidth() / 2, -player.y + Display.getHeight() / 2, 0);
+        floor.render(g);
         for (Raider ent : getArrEnts()) {
             ent.render(g);
         }
         if (flag != null) {
             flag.render(g);
         }
+       
         GL11.glTranslated(player.x - Display.getWidth() / 2, player.y - Display.getHeight() / 2, 0);
-
-        GL11.glTranslated(-plcamx/2, -plcamy/2, 0);
+        player.gameRender(g);
+        GL11.glTranslated(-plcamx / 2, -plcamy / 2, 0);
 
         player.text();
         for (Raider ent : getArrEnts()) {
