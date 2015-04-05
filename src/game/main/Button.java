@@ -4,7 +4,6 @@
  */
 package game.main;
 
-
 import static game.main.Game.fontRender;
 //import static game.main.Menu.sprite;
 import org.lwjgl.input.Mouse;
@@ -33,7 +32,7 @@ public abstract class Button {
     }
 
     public void render(Graphics g) {
-        int x = this.x+Display.getWidth()/2;
+        int x = this.x + Display.getWidth() / 2;
         int y = this.y;
         int w = this.w + wp;
         fontRender.drawString(text, x - fontRender.getWidth(text) / 2, y + 3, Color.black);
@@ -41,16 +40,16 @@ public abstract class Button {
         int my = Display.getHeight() - Mouse.getY();
 
         /*sprite[0].setImageColor(color.r, color.g, color.b);
-        sprite[1].setImageColor(color.r, color.g, color.b);
-        sprite[2].setImageColor(color.r, color.g, color.b);
-        sprite[0].draw(x - w / 2 - 16, y);
-        sprite[1].draw(x - w / 2, y, w, 50);
-        sprite[2].draw(x + w / 2, y);*/
-        
-        g.drawRect(x-w/2,y, w, 50);
+         sprite[1].setImageColor(color.r, color.g, color.b);
+         sprite[2].setImageColor(color.r, color.g, color.b);
+         sprite[0].draw(x - w / 2 - 16, y);
+         sprite[1].draw(x - w / 2, y, w, 50);
+         sprite[2].draw(x + w / 2, y);*/
+        g.setColor(color);
+        g.drawRect(x - w / 2, y, w, 50);
         fontRender.drawString(text, x - fontRender.getWidth(text) / 2, y + 3, Color.white);
 
-        if (Math.abs(mx - x) < (w + wp) / 2 && Math.abs(y+25 - my) < 25) {
+        if (Math.abs(mx - x) < (w + wp) / 2 && Math.abs(y + 25 - my) < 25) {
             if (wp < 16) {
                 wp *= 2;
             }

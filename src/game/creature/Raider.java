@@ -16,11 +16,10 @@ import org.newdawn.slick.Graphics;
  *
  * @author Юрий Whizzpered
  */
-public class Player extends Creature {
+public class Raider extends Creature {
 
     boolean hold;
     Random r = new Random();
-    
 
     @Override
     public void init(Object... args) {
@@ -44,6 +43,7 @@ public class Player extends Creature {
         if (!hold && getTimer("base").is()) {
             ex = r.nextInt(Display.getWidth() - 256) + 128;
             hold = true;
+            System.out.println(ex);
         }
 
         if (Math.abs(ex - x) < 6 && hold) {
@@ -56,18 +56,17 @@ public class Player extends Creature {
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.white);
-        g.fillRect((int) (x), (int) (y), 20, 20); 
+        g.setColor(Color.red);
+        g.fillRect((int)x, (int) y, 20, 20);
+        if (focused) {
+            fontRender.drawString("focus", (int) (x - 16), (int) (y - 16), Color.white);
+        }
+
     }
 
-    public void gameRender(Graphics g) {
-        g.setColor(Color.white);
-        g.fillRect((int) (Display.getWidth()/2), (int) (Display.getHeight()/2), 20, 20);
-    }
-    
     @Override
     public void text() {
-        fontRender.drawString(x + "   " + y, 20, 20, Color.white);
-        fontRender.drawString(hp + "   " + dmg, 20, 5, Color.white);
+        fontRender.drawString(x + "   " + y, 130, 20, Color.red);
+        fontRender.drawString(hp + "   " + dmg, 130, 5, Color.red);
     }
 }

@@ -68,6 +68,7 @@ public class Game {
 
     public static void init() throws SlickException {
         currScene.init();
+
         sceneTimer();
         fontRender = FontRender.getTextRender("Sans", 0, 16);
     }
@@ -84,7 +85,6 @@ public class Game {
             conf.set("music", true);
         }
 
-        
     }
 
     public static void main() {
@@ -119,7 +119,7 @@ public class Game {
                      }*/
                     //here is a pre-loading
                     init();
-                    
+
                     GL11.glEnable(GL11.GL_TEXTURE_2D);
                     GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
                     GL11.glEnable(GL11.GL_BLEND); //Юра, если что, это нужно перенести под MatrixMode

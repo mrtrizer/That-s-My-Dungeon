@@ -39,7 +39,11 @@ public class Creature {
     }
 
     public void die() {
-        
+
+    }
+
+    public void text() {
+
     }
 
     public void baseTick() {

@@ -6,6 +6,7 @@ package game.main;
 
 import game.creature.Creature;
 import game.creature.Player;
+import game.creature.Raider;
 import java.util.ArrayList;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -23,7 +24,7 @@ public abstract class Scene {
 
     }
 
-    public void spawn(Creature ent, Object... args) {
+    public void spawn(Raider ent, Object... args) {
 
     }
 
