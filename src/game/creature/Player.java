@@ -19,7 +19,12 @@ public class Player extends Creature {
 
     boolean hold;
     Random r = new Random();
+    @Override
+    public int getWidth(){return 20;}
 
+    @Override
+    public int getHeight(){return 20;}
+    
     @Override
     public void init(Object... args) {
         x = (Double) args[0];
