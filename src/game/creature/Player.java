@@ -35,7 +35,7 @@ public class Player extends Creature {
         baseTick();
         //statictick();
         move(ex, ey);
-        if(ex==x && ey==y){
+        if (ex == x && ey == y) {
             reset();
         }
     }
@@ -70,6 +70,14 @@ public class Player extends Creature {
     public void gameRender(Graphics g) {
         g.setColor(Color.white);
         g.fillRect((int) (Display.getWidth() / 2), (int) (Display.getHeight() / 2), 20, 20);
+    }
+
+    public void focussmth(Raider r) {
+        if (focus != null) {
+            focus.focused = false;
+        }
+        focus = r;
+        focus.focused = true;
     }
 
     @Override

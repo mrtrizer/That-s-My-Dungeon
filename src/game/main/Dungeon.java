@@ -127,7 +127,10 @@ public class Dungeon extends Scene {
             flag = new Flag(player.ex, player.ey);
         }
         if (Mouse.isButtonDown(0)) {
-
+            for (Raider raid : creatures) {
+                if(Math.abs(raid.x-(player.x - plcamx))<100 && Math.abs(raid.y-(player.y - plcamy))<100)
+                    player.focussmth(raid);
+            }
         }
     }
 

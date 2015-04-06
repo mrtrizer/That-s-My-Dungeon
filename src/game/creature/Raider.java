@@ -32,7 +32,7 @@ public class Raider extends Creature {
     @Override
     public void tick() {
         baseTick();
-        statictick();
+        //statictick();
         move(ex, ey);
     }
 
