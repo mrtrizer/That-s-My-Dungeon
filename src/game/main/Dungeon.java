@@ -111,7 +111,7 @@ public class Dungeon extends Scene {
         } else if (flag == null) {
             player.vx = 0;
         }
-        
+
     }
 
     public void mouseNavigation() {
@@ -134,9 +134,12 @@ public class Dungeon extends Scene {
     @Override
     public void render(Graphics g) {
 
-        GL11.glTranslated(plcamx / 2, plcamy / 2, 0);
+        double py = plcamy / 2, px = plcamx / 2;
+        double cx = player.x - Display.getWidth() / 2, cy = player.y - Display.getHeight() / 2;
 
-        GL11.glTranslated(-player.x + Display.getWidth() / 2, -player.y + Display.getHeight() / 2, 0);
+        GL11.glTranslated(px, py, 0);
+        GL11.glTranslated(-cx, -cy, 0);
+
         floor.render(g);
         for (Raider ent : getArrEnts()) {
             ent.render(g);
@@ -145,9 +148,9 @@ public class Dungeon extends Scene {
             flag.render(g);
         }
 
-        GL11.glTranslated(player.x - Display.getWidth() / 2, player.y - Display.getHeight() / 2, 0);
+        GL11.glTranslated(cx, cy, 0);
         player.gameRender(g);
-        GL11.glTranslated(-plcamx / 2, -plcamy / 2, 0);
+        GL11.glTranslated(-px, -py, 0);
 
         player.text();
         for (Raider ent : getArrEnts()) {

@@ -25,10 +25,10 @@ public class Menu extends Scene {
     @Override
     public void init(Object... args) throws SlickException {
 
-        /*sprite[0] = new Image("res/gui/button_left.png");
-         sprite[1] = new Image("res/gui/button_center.png");
-         sprite[2] = new Image("res/gui/button_right.png");
-         sprite[1].setFilter(GL11.GL_NEAREST);*/
+        sprite[0] = new Image("res/gui/button_left.png");
+        sprite[1] = new Image("res/gui/button_center.png");
+        sprite[2] = new Image("res/gui/button_right.png");
+        sprite[1].setFilter(GL11.GL_NEAREST);
         sprite[3] = new Image("res/gui/back.jpg");
         sprite[3].setFilter(GL11.GL_NEAREST);
 

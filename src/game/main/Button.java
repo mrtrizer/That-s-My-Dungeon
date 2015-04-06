@@ -5,6 +5,7 @@
 package game.main;
 
 import static game.main.Game.fontRender;
+import static game.main.Menu.sprite;
 //import static game.main.Menu.sprite;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
@@ -39,14 +40,12 @@ public abstract class Button {
         int mx = Mouse.getX();
         int my = Display.getHeight() - Mouse.getY();
 
-        /*sprite[0].setImageColor(color.r, color.g, color.b);
-         sprite[1].setImageColor(color.r, color.g, color.b);
-         sprite[2].setImageColor(color.r, color.g, color.b);
-         sprite[0].draw(x - w / 2 - 16, y);
-         sprite[1].draw(x - w / 2, y, w, 50);
-         sprite[2].draw(x + w / 2, y);*/
-        g.setColor(color);
-        g.drawRect(x - w / 2, y, w, 50);
+        sprite[0].setImageColor(color.r, color.g, color.b);
+        sprite[1].setImageColor(color.r, color.g, color.b);
+        sprite[2].setImageColor(color.r, color.g, color.b);
+        sprite[0].draw(x - w / 2 - 16, y);
+        sprite[1].draw(x - w / 2, y, w, 50);
+        sprite[2].draw(x + w / 2, y);
         fontRender.drawString(text, x - fontRender.getWidth(text) / 2, y + 3, Color.white);
 
         if (Math.abs(mx - x) < (w + wp) / 2 && Math.abs(y + 25 - my) < 25) {

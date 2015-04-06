@@ -32,7 +32,7 @@ public class Raider extends Creature {
     @Override
     public void tick() {
         baseTick();
-        //statictick();
+        statictick();
         move(ex, ey);
     }
 
@@ -41,7 +41,6 @@ public class Raider extends Creature {
         if (!hold && getTimer("base").is()) {
             ex = r.nextInt(Display.getWidth() - 256) + 128;
             hold = true;
-            System.out.println(ex);
         }
 
         if (Math.abs(ex - x) < 6 && hold) {
