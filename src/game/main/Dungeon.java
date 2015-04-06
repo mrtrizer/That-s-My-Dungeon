@@ -30,6 +30,8 @@ public class Dungeon extends Scene {
     public Flag flag;
     Random r = new Random();
     Floor floor = new Floor();
+    public int getWidth(){return floor.w * Block.w;}
+    public int getHeight(){return floor.w * Block.w;}
     int lvl;
     public static double plcamx, plcamy;
     public boolean inited;
