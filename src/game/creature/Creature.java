@@ -53,6 +53,10 @@ public class Creature {
         if (hp <= 0) {
             die();
         }
+        if(x < 0)x = 0;
+        if(y < 0)y = 0;
+        if(x > 1024)x = 1024;
+        if(y > 1024)y = 1024;
     }
 
     public void tick() {

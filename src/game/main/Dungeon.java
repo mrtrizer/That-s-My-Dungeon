@@ -122,8 +122,8 @@ public class Dungeon extends Scene {
         plcamy = h / 2 - my;
 
         if (Mouse.isButtonDown(1)) {
-            player.ex = (player.x - plcamx);
-            player.ey = (player.y - plcamy);
+            player.ex = (player.x - plcamx * 1.5);
+            player.ey = (player.y - plcamy * 1.5);
             flag = new Flag(player.ex, player.ey);
         }
         if (Mouse.isButtonDown(0)) {
