@@ -16,9 +16,10 @@ import utils.Timer;
  * @author Юрий Whizzpered
  */
 public class Creature extends GameObject{
-
     public Dungeon dung;
     public Creature focus;
+    public abstract int getWidth();
+    public abstract int getHeight();
     public int hp, maxhp, dmg, gold;
     ArrayList<Timer> timers = new ArrayList<>();
     ArrayList<String> timnames = new ArrayList<>();
@@ -58,10 +59,14 @@ public class Creature extends GameObject{
         if (hp <= 0) {
             die();
         }
-        if(x < 0)x = 0;
-        if(y < 0)y = 0;
-        if(x > 1024)x = 1024;
-        if(y > 1024)y = 1024;
+        if(x < 0)
+            x = 0;
+        if(y < 0)
+            y = 0;
+        if(x + getWidth() > dung.getWidth())
+            x = dung.getWidth() - getWidth();
+        if(y + getHeight() > dung.getHeight())
+            y = dung.getWidth() - getHeight();
     }
 
     public void tick() {
