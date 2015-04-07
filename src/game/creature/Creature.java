@@ -5,6 +5,7 @@
 package game.creature;
 
 import game.main.Dungeon;
+import game.object.GameObject;
 import java.util.ArrayList;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
@@ -14,16 +15,20 @@ import utils.Timer;
  *
  * @author Юрий Whizzpered
  */
-public class Creature {
+public class Creature extends GameObject{
 
     public Dungeon dung;
     public Creature focus;
-    public double x, y, vx, vy, ex, ey;
     public int hp, maxhp, dmg, gold;
     ArrayList<Timer> timers = new ArrayList<>();
     ArrayList<String> timnames = new ArrayList<>();
     public boolean focused;
 
+    public Creature()       
+    {
+        super(0,0);
+    }
+    
     public void setTimer(String name, int tim) {
         timers.add(new Timer(tim));
         timnames.add(name);
