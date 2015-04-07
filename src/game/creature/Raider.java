@@ -20,12 +20,6 @@ public class Raider extends Creature {
     Random r = new Random();
 
     @Override
-    public int getWidth(){return 20;}
-
-    @Override
-    public int getHeight(){return 20;}
-    
-    @Override
     public void init(Object... args) {
         x = (Double) args[0];
         y = (Double) args[1];

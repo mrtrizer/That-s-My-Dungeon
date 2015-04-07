@@ -14,7 +14,7 @@ import org.newdawn.slick.SlickException;
  */
 public class Block {
 
-    public static int w = 64, h = 64;
+    public int w = 64, h = 64;
     Image sprite;
 
     public void init() throws SlickException {
